@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="dashboard.css" rel="stylesheet">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Open+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato&family=Noto+Sans+JP&family=Open+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300&display=swap" rel="stylesheet">
+        <!-- <link rel="stylesheet" type="text/css" href="todolist.css"> -->
+        <title>Personal Stats</title>
+        <link rel="icon" 
+     type="image/png" 
+     href="logo3.png">
+    </head>
+
+    <body>
+        <div class="container">
+            <nav class="navbar">
+                <div class="nav_icon" onclick="toggleSidebar()">
+                    <i class="fa fa-bars"></i>
+                </div>
+                <div class="navbar__left">
+                    <a href="#">Item One</a>
+                    <a href="#">Item Two</a>
+                    <a href="#">Item Three</a>
+                </div>
+                <div class="navbar__right">
+                    
+                </div>
+            </nav>
+
+            <main>
+                <div class="main__container">
+                    <div class="main__title">
+                        <div class="main__greeting">
+                            <h1>Personal Statistics & Summary</h1>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="main__panel">
+                        <div class="cardPanel">
+                            <div class="card__inner">
+                                <!-- You can insert your stuff here-->
+                                <h3 style="color: white; text-align: left; font-size: 30px;">Weekly Summary</h3>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+
+                    <br>
+                    <br>
+                    <br>  
+                </div>
+            </main>
+
+            <div id="sidebar">
+                <div class="sidebar__title">
+                    <h1>Menu Bar</h1>
+                    <i class="fa fa-times" id="sidebarIcon" onclick=closeSidebar()></i>
+                </div>
+
+            <div class="sidebar__menu">
+                <div class="sidebar__link">
+                    <i class="fa fa-home"></i>
+                    <a href="dashboard.php">Dashboard</a>
+                </div>
+
+                <div class="sidebar__link active_menu_link">
+                    <i class="fa fa-bar-chart" style="color: var(--heading-color);"></i>
+                    <a href="stats.html">Personal Stats</a>
+                </div>
+
+                <div class="sidebar__link">
+                    <i class="fa fa-files-o"></i>
+                    <a href="resource.html">Resources</a>
+                </div>
+
+                <div class="sidebar__link">
+                    <i class="fa fa-question"></i>
+                    <a href="faq.html">FAQs</a>
+                </div>
+
+                <br>
+
+                <div class="sidebar__link">
+                    <i class="fa fa-user"></i>
+                    <a href="account.php">Account</a>
+                </div>
+
+                <div class="sidebar__logout">
+                    <i class="fa fa-power-off"></i>
+                    <a href="logout.php">Log out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+        <script src="dashboard.js"></script>
+    </body>
+</html>

@@ -1,0 +1,71 @@
+body{
+    background:  linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("register.jpg");
+    background-position: center;
+    height: 100vh;
+    background-size: auto;
+    font-family: 'Baloo Chettan 2', cursive;
+    }
+    .col-md-4{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    }
+    form{
+    background-color: rgba(14,42,71,0.7);
+    box-shadow: 0 0 10px rgba(14,42,71,0.7);
+    padding: 30px;
+    }
+    label{
+    color: whitesmoke;
+    }
+    .form-control{
+    height: 50px;
+    border: none;
+    border-bottom: 2px solid #fff;
+    background: none;
+    font-size: 20px;
+    border-radius: 0px;
+    }
+    .form-control:active{
+    outline: none;
+    border: none;
+    }
+    .form-control:focus{
+    background: none;
+    box-shadow: none;
+    outline: none;
+    border:none;
+    color: #fff;
+    border-bottom: 2px solid #48ffd5;
+    outline: 0;
+    }
+    .form-control:hover{
+    border-bottom: 2px solid #48ffd5;
+    outline: none;
+    border-color: none;
+    }
+    .btn-custom{
+    background-color: #313131;
+    border-color: #1a1a1a;
+    color: #fff;
+    }
+    .btn-custom{
+    color: #fff !important;
+    }
+    .btn.focus, .btn:focus {
+    box-shadow: none !important;
+    }
+
+    .nav-item {
+  font-size: 1.5em;
+}
+
+.navbar-nav {
+    font-family: "Baloo Chettan 2", cursive;
+}
+
+.navbar-brand {
+  font-family: "Acme", sans-serif;
+  font-size: 2.8em;
+}

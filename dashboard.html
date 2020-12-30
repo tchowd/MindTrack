@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="dashboard.css" rel="stylesheet">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Open+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato&family=Noto+Sans+JP&family=Open+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300&display=swap" rel="stylesheet">
+        <!-- <link rel="stylesheet" type="text/css" href="todolist.css"> -->
+        <title>Dashboard</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <nav class="navbar">
+                <div class="nav_icon" onclick="toggleSidebar()">
+                    <i class="fa fa-bars"></i>
+                </div>
+                <div class="navbar__left">
+                    <a href="#">Item One</a>
+                    <a href="#">Item Two</a>
+                    <a href="#">Item Three</a>
+                </div>
+                <div class="navbar__right">
+                    
+                </div>
+            </nav>
+
+            <main>
+                <div class="main__container">
+                    <div class="main__title">
+                        <div class="main__greeting">
+                            <h1>Hello</h1>
+                            <p>Welcome to your dashboard</p><br>
+                        </div>
+                    </div>
+
+                    <div class="main__cards">
+                        <div class="card">
+                            <i class="fa fa-user-o fa-2x text-lightblue"></i>
+                            <div class="card__inner">
+                                <p>Panel One</p>
+                            </div>
+                        </div>
+
+                        <a href="https://calendar.google.com/calendar/" target='_blank' style="text-decoration: none;">
+                        <div class="cardTwo">
+                            <i class="fa fa-calendar fa-2x text-red"></i>
+                            <div class="card__inner">
+                                <p>Schedule Appointment</p>
+                            </div>
+                        </div>
+                        </a>
+
+                        <div class="cardThree">
+                            <i class="fa fa-user-o fa-2x text-orange"></i>
+                            <div class="card__inner">
+                                <p>Panel Three</p>
+                            </div>
+                        </div>
+
+                        <div class="cardFour">
+                            <i class="fa fa-user-o fa-2x text-green"></i>
+                            <div class="card__inner">
+                                <p>Panel Four</p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="grid__first">
+                        <div id="apex1">
+                            <h1> <span class='todostyling'>Todo List</span></h1>
+                                <div class='todoinput-div'>
+                                    <input class='todoinput' type='todotext' placeholder='What do you want to do?'>
+                                    <button class='todoaddButton'><i class="fa fa-plus text-lightblue"></i></button>
+                                </div>
+                                <div class='todocontainer'>
+                                
+                                </div>
+
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    
+                    <div class="grid">
+                        <div class="col-xs-2 col-md-2">
+                            <!-- <i class="fa fa-building fa-2x text-lightblue" ></i> -->
+                            <div id="apex1">
+                                <h1> <span class='todostyling'>Personal Calendar</span></h1>
+                                <br>
+                                <br>
+                                <div class="panel">
+                                    <div class="calendar">
+                              
+                                      <div class="month">
+                                        <i class="fa fa-arrow-left prev"></i>
+                                   
+                                        <div class="date">
+                                          <h1></h1>
+                                          <p></p>
+                                        </div>
+                              
+                                        <i class="fa fa-arrow-right next"></i>
+                                      </div>
+                                      
+                                      <div class="weekdays">
+                                        <div>Sun</div>
+                                        <div>Mon</div>
+                                        <div>Tue</div>
+                                        <div>Wed</div>
+                                        <div>Thu</div>
+                                        <div>Fri</div>
+                                        <div>Sat</div>
+                                      </div>
+                                      
+                                      <div class="days"></div>
+                                    </div>
+                                  </div>
+
+                            </div>
+                            
+                        </div>
+
+                        <div class="wrapper">
+                            <div class="title">MindTrack Chatbot</div>
+                            <div class="form">
+                                <div class="bot-inbox inbox">
+                                    <div class="icon">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="msg-header">
+                                        <p>Hello! Welcome to MindTrack! On a scale of 1-10, how are you feeling today? :)</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="typing-field">
+                                <div class="input-data">
+                                    <input id="data" type="text" placeholder="Type something here.." required>
+                                    <button id="send-btn">Send</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <script>
+                            $(document).ready(function(){
+                                $("#send-btn").on("click", function(){
+                                    $value = $("#data").val();
+                                    $msg = '<div class="user-inbox inbox"><div class="msg-header"><p>'+ $value +'</p></div></div>';
+                                    $(".form").append($msg);
+                                    $("#data").val('');
+                
+                                    // start ajax code
+                                    $.ajax({
+                                        url: 'message.php',
+                                        type: 'POST',
+                                        data: 'text='+$value,
+                                        success: function(result){
+                                            $replay = '<div class="bot-inbox inbox"><div class="icon"><i class="fas fa-user"></i></div><div class="msg-header"><p>'+ result +'</p></div></div>';
+                                            $(".form").append($replay);
+                        // when chat goes down the scroll bar automatically comes to the bottom
+                                            $(".form").scrollTop($(".form")[0].scrollHeight);
+                                        }
+                                    });
+                                });
+                            });
+                        </script>
+
+                        <div class="col-xs-1 col-md-4">
+                            <!-- <i class="fa fa-users fa-2x text-lightblue" ></i> -->
+                            <div class="chart__right__cards">
+                                <div class="charts__right__title">
+                                    
+                                        <h1> <span class='todostyling'>Personal Stats</span></h1>
+                                <br>
+                                <br>
+                                </div>
+                                <div class="card1">
+                                    <h1>Card 1</h1>
+                                </div>
+
+                                <div class="card2">
+                                    <h1>Card 2</h1>
+                                </div>
+
+                                <div class="card3">
+                                    <h1>Card 3</h1>
+                                </div>
+
+                                <div class="card4">
+                                    <h1>Card 4</h1>
+                                </div>
+
+                                <div class="card4">
+                                    <h1>Card 4</h1>
+                                </div>
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="recipe">
+                        <!-- Displays the user's scores over the past week from the database -->
+                        <div class="pizza-box">
+                            <h1> <span class='recipe-content'>Motivation Of The Day</span></h1>
+                            
+                            <div class="pizza-box">
+                
+                                <h2 id='output'>sdfdsfdsf</h2>
+                                <button type="button" class="btn btn-outline-primary"> Press for a quote </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <div id="sidebar">
+                <div class="sidebar__title">
+                    <h1>Menu Bar</h1>
+                    <i class="fa fa-times" id="sidebarIcon" onclick=closeSidebar()></i>
+                </div>
+
+            <div class="sidebar__menu">
+                <div class="sidebar__link active_menu_link">
+                    <i class="fa fa-home"></i>
+                    <a href="">Dashboard</a>
+                </div>
+
+                <div class="sidebar__link">
+                    <i class="fa fa-files-o"></i>
+                    <a href="resource.html">Resources</a>
+                </div>
+
+                <div class="sidebar__link">
+                    <i class="fa fa-question"></i>
+                    <a href="#">FAQs</a>
+                </div>
+
+                <h2>Account</h2>
+
+                <div class="sidebar__link">
+                    <div class="theme-switch-wrapper">
+                        <h4>Theme &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</h4>
+                        <label class="theme-switch" for="checkbox">
+                            <input type="checkbox" id="checkbox" />
+                            <div class="slider round"></div>
+                      </label>
+                      
+                    </div>                    
+                </div>
+
+                <div class="sidebar__logout">
+                    <i class="fa fa-power-off"></i>
+                    <a href="logout.php">Log out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+        <script src="dashboard.js"></script>
+    </body>
+</html>
