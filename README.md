@@ -1,6 +1,6 @@
 # MindTrack
 
-Live: https://sthenic-smile.000webhostapp.com/main.html
+Live: https://sthenic-smile.000webhostapp.com/index.html
 
 ## Technologies used ##
 HTML/CSS, JavaScript, jQuery, PHP, mySQL and Figma
